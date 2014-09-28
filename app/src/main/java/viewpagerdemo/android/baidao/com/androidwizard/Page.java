@@ -9,6 +9,7 @@ public class Page {
     protected int id;
     protected String title;
     protected Fragment fragment;
+    protected boolean completed;
 
     public Page(int id, String title) {
         this.id = id;
@@ -38,5 +39,13 @@ public class Page {
     public Page setFragment(Fragment fragment) {
         this.fragment = fragment;
         return this;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }

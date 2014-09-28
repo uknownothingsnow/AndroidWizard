@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +61,11 @@ public class TextFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (TextUtils.isEmpty(s.toString())) {
+                    pageFragmentCallback.getPage(id).setCompleted(false);
+                } else {
+                    pageFragmentCallback.getPage(id).setCompleted(true);
+                }
                 if (null != pageInteractionListener) {
                     pageInteractionListener.onPageInteraction(pageFragmentCallback.getPage(id));
                 }

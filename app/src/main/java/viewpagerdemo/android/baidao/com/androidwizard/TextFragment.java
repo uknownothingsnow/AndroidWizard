@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 public class TextFragment extends Fragment {
-    protected static final String ARG_PAGE_ID = "id";
-    protected static final String ARG_PAGE_TITLE = "title";
+    protected static final String ARG_PAGE_ID = "pageId";
+    protected static final String ARG_PAGE_TITLE = "pageTitle";
     int id;
     String title;
 

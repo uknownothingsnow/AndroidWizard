@@ -6,17 +6,28 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.CheckedTextView;
+import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.google.common.collect.Lists;
+import com.mobsandgeeks.adapters.InstantAdapter;
+import com.mobsandgeeks.adapters.ViewHandler;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
 public class SingleChoiceFragment extends Fragment {
-    protected static final String ARG_PAGE_ID = "id";
-    protected static final String ARG_PAGE_TITLE = "title";
-    int id;
-    String title;
+    protected static final String ARG_PAGE_ID = "pageId";
+    protected static final String ARG_PAGE_TITLE = "pageTitle";
+    int pageId;
+    String pageTitle;
     @InjectView(R.id.list)
     ListView listView;
 
@@ -39,8 +50,8 @@ public class SingleChoiceFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            id = getArguments().getInt(ARG_PAGE_ID);
-            title = getArguments().getString(ARG_PAGE_TITLE);
+            pageId = getArguments().getInt(ARG_PAGE_ID);
+            pageTitle = getArguments().getString(ARG_PAGE_TITLE);
         }
     }
 
@@ -49,13 +60,26 @@ public class SingleChoiceFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_single_choice, container, false);
-        ButterKnife.inject(view);
+        ButterKnife.inject(this, view);
 
-        listView.setOnClickListener(new View.OnClickListener() {
+        List<String> items = Lists.newArrayList("item1", "item2", "item3", "item4", "item5", "item6", "item7", "item8", "item9", "item10", "item11", "item12", "item13");
+
+        InstantAdapter<String> adapter = new InstantAdapter<String>(getActivity(), R.layout.list_item_single_choice, String.class, items);
+        adapter.setViewHandler(android.R.id.text1, new ViewHandler<String>() {
             @Override
-            public void onClick(View v) {
+            public void handleView(ListAdapter adapter, View parent, View view, String instance, int position) {
+                ((CheckedTextView) view).setText(instance);
+            }
+        });
+        listView.setAdapter(adapter);
+
+        listView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (null != onPageInteractionListener) {
-                    onPageInteractionListener.onPageInteraction(pageFragmentCallback.getPage(id));
+                    onPageInteractionListener.onPageInteraction(pageFragmentCallback.getPage(pageId));
                 }
             }
         });

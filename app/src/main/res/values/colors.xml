@@ -16,8 +16,9 @@
 
 <resources>
     <color name="main_background">#EFEFF4</color>
-
+    <color name="text_dark">#000000</color>
     <color name="text_light">#66000000</color>
+    <color name="list_view_divider">#cacaca</color>
 
     <color name="review_green">#ff669900</color>
     <color name="step_pager_previous_tab_color">#ace6e4</color>

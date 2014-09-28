@@ -14,7 +14,7 @@ public class PageContainer {
         pageNode = new PageNode()
             .setPage(
                 new Page(Pages.FIRST.ordinal(), FIRST_TITLE)
-                .setFragment(TextFragment.newInstance(Pages.FIRST.ordinal(), FIRST_TITLE))
+                .setFragment(SingleChoiceFragment.newInstance(Pages.FIRST.ordinal(), FIRST_TITLE))
             )
             .addChild(
                 new PageNode()

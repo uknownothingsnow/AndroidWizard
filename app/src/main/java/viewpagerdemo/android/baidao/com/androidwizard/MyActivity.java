@@ -101,7 +101,7 @@ public class MyActivity extends FragmentActivity implements OnPageInteractionLis
 
         @Override
         public Fragment getItem(int i) {
-            return TextFragment.newInstance(i, "this is page: " + i);
+            return pageContainer.getPage(i).getFragment();
         }
 
         @Override

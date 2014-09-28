@@ -14,21 +14,25 @@ public class PageContainer {
         pageNode = new PageNode()
             .setPage(
                 new Page(Pages.FIRST.ordinal(), FIRST_TITLE)
+                .setFragment(TextFragment.newInstance(Pages.FIRST.ordinal(), FIRST_TITLE))
             )
             .addChild(
                 new PageNode()
                     .setPage(
                         new Page(Pages.SECOND.ordinal(), SECOND_TITLE)
+                        .setFragment(TextFragment.newInstance(Pages.SECOND.ordinal(), SECOND_TITLE))
                     )
                     .addChild(
                         new PageNode()
                             .setPage(
                                 new Page(Pages.THIRD.ordinal(), THIRD_TITLE)
+                                .setFragment(TextFragment.newInstance(Pages.THIRD.ordinal(), THIRD_TITLE))
                             )
                             .addChild(
                                 new PageNode()
                                     .setPage(
                                         new Page(Pages.FOURTH.ordinal(), FOURTH_TITLE)
+                                        .setFragment(TextFragment.newInstance(Pages.FOURTH.ordinal(), FOURTH_TITLE))
                                     )
                             )
                     )

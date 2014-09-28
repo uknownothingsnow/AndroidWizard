@@ -1,11 +1,14 @@
 package viewpagerdemo.android.baidao.com.androidwizard;
 
+import android.support.v4.app.Fragment;
+
 /**
  * Created by bruce on 9/28/14.
  */
 public class Page {
     protected int id;
     protected String title;
+    protected Fragment fragment;
 
     public Page(int id, String title) {
         this.id = id;
@@ -26,5 +29,14 @@ public class Page {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Fragment getFragment() {
+        return fragment;
+    }
+
+    public Page setFragment(Fragment fragment) {
+        this.fragment = fragment;
+        return this;
     }
 }

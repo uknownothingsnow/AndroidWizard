@@ -29,4 +29,5 @@
     <color name="wizard_button_text_color">#1632b2</color>
     <color name="wizard_button_container_background_color">#ffecebf2</color>
     <color name="wizard_button_container_divider_color">#ffcacaca</color>
+    <color name="table_text_light">#A6A6A6</color>
 </resources>

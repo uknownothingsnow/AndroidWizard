@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <viewpagerdemo.android.baidao.com.androidwizard.StepPagerStrip
+        android:id="@+id/strip"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:gravity="fill_horizontal"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/wizard_button_container_divider_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/prev_button"
+            style="@style/WizardButtonBarButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/wizard_button_selector"
+            android:text="@string/wizard_prev" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/wizard_button_container_divider_color" />
+
+        <Button
+            android:id="@+id/next_button"
+            style="@style/WizardButtonBarButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/wizard_button_selector"
+            android:text="@string/wizard_next" />
+    </LinearLayout>
+
+</LinearLayout>

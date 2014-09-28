@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wizard Demo</string>
+    <string name="review">Review</string>
+    <string name="geo_status_searching">Waiting GPS …</string>
+    <string name="geo_status_found">Location found</string>
+    <string name="geo_status_location">%1$s \n(%2$s)</string>
+    <string name="wizard_prev">上一步</string>
+    <string name="wizard_next">下一步</string>
+    <string name="wizard_finish">提交</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

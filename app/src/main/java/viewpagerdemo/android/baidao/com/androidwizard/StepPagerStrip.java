@@ -160,12 +160,6 @@ public class StepPagerStrip extends View {
     }
 
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        scrollCurrentPageIntoView();
-        super.onSizeChanged(w, h, oldw, oldh);
-    }
-
-    @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (mOnPageSelectedListener != null) {
             switch (event.getActionMasked()) {
@@ -222,47 +216,14 @@ public class StepPagerStrip extends View {
     public void setCurrentPage(int currentPage) {
         mCurrentPage = currentPage;
         invalidate();
-        scrollCurrentPageIntoView();
-
-        // TODO: Set content description appropriately
-    }
-
-    private void scrollCurrentPageIntoView() {
-        // TODO: only works with left gravity for now
-//
-//        float widthToActive = getPaddingLeft() + (mCurrentPage + 1) * (mTabWidth + mTabSpacing)
-//                - mTabSpacing;
-//        int viewWidth = getWidth();
-//
-//        int startScrollX = getScrollX();
-//        int destScrollX = (widthToActive > viewWidth) ? (int) (widthToActive - viewWidth) : 0;
-//
-//        if (mScroller == null) {
-//            mScroller = new Scroller(getContext());
-//        }
-//
-//        mScroller.abortAnimation();
-//        mScroller.startScroll(startScrollX, 0, destScrollX - startScrollX, 0);
-//        postInvalidate();
     }
 
     public void setPageCount(int count) {
         mPageCount = count;
         invalidate();
-
-        // TODO: Set content description appropriately
     }
 
     public static interface OnPageSelectedListener {
         void onPageStripSelected(int position);
     }
-
-//
-//    @Override
-//    public void computeScroll() {
-//        super.computeScroll();
-//        if (mScroller.computeScrollOffset()) {
-//            setScrollX(mScroller.getCurrX());
-//        }
-//    }
 }

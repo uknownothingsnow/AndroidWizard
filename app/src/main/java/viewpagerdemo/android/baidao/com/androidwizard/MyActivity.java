@@ -1,24 +1,22 @@
 package viewpagerdemo.android.baidao.com.androidwizard;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 
-public class MyActivity extends FragmentActivity {
+public class MyActivity extends FragmentActivity implements OnPageInteractionListener, PageFragmentCallback {
 
     StepPagerStrip stepPagerStrip;
     ViewPager viewPager;
     WizardAdapter adapter;
     Button preButton;
     Button nextButton;
+    PageContainer pageContainer = new PageContainer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +81,18 @@ public class MyActivity extends FragmentActivity {
         }
     }
 
+    @Override
+    public void onPageInteraction(Page data) {
+        if (data != null) {
+            System.out.println("---------------------onPageInteraction: " + data.getTitle());
+        }
+    }
+
+    @Override
+    public Page getPage(int id) {
+        return pageContainer.getPage(id);
+    }
+
     public class WizardAdapter extends SmartFragmentStatePagerAdapter {
 
         public WizardAdapter(FragmentManager fragmentManager) {
@@ -91,12 +101,12 @@ public class MyActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int i) {
-            return LabelFragment.newInstance("title: " + i, "this is page: " + i);
+            return TextFragment.newInstance(i, "this is page: " + i);
         }
 
         @Override
         public int getCount() {
-            return 4;
+            return pageContainer.size();
         }
     }
 }
